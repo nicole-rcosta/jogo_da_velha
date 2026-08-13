@@ -1,16 +1,26 @@
-# React + Vite
+# ❌⭕ Tic-Tac-Toe (Jogo da Velha)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma versão moderna e responsiva do clássico **Jogo da Velha**, desenvolvida com **React** e estilizada utilizando **CSS Modules** para garantir escopo fechado e organização dos estilos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Tecnologias Utilizadas
 
-## React Compiler
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **[React](https://react.dev/):** Biblioteca principal para construção da interface baseada em componentes (`.jsx`).
+- **[CSS Modules](https://github.com/css-modules/css-modules):** Estilização escopada por componente (`.module.css`), evitando vazamento de estilos globais.
+- **JavaScript (ES6+):** Lógica do jogo e manipulação de estado.
+- **[Vite](https://vitejs.dev/) / [Create React App](https://create-react-app.dev/):** *(Escolha o que usou)* Ferramenta de build e servidor de desenvolvimento.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Funcionalidades
+
+- [x] Alternância automática de turnos entre jogadores (**X** e **O**).
+- [x] Detecção automática de vitória ou empate (Velha).
+- [x] Indicação visual do jogador atual e do vencedor.
+- [x] Botão para reiniciar/reiniciar a partida.
+- [x] Design responsivo para telas móbiles e desktop.
+
+---
