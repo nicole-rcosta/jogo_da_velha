@@ -1,0 +1,17 @@
+/* Wrapper principal da aplicação [RF10] */
+.gameContainer {
+  max-width: 850px;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  border-radius: 16px;
+  padding: 24px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scroll para a lista do histórico de viagem no tempo [RF07] */
+.listaHistorico {
+  max-height: 320px;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+}

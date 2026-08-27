@@ -1,0 +1,51 @@
+/* Bloco BEM: Estilo base da célula */
+.square {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Garante proporção perfeitamente quadrada (1:1) */
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--bs-body-color, #212529);
+  background-color: var(--bs-body-bg, #ffffff);
+  border: 2px solid var(--bs-border-color, #dee2e6);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Efeitos interativos para quando o mouse passa por cima */
+.square:hover:not(:disabled) {
+  background-color: var(--bs-tertiary-bg, #f8f9fa);
+  border-color: #0d6efd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Desativa ponteiro quando desabilitado */
+.square:disabled {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* Modificador BEM: Estilo da trinca vitoriosa [RF04 / RF11] */
+.square--winning {
+  background-color: #d1e7dd !important;
+  border-color: #198754 !important;
+  color: #0f5132 !important;
+  animation: pulsoVitoria 0.6s ease-in-out infinite alternate;
+}
+
+/* Animação suave para comemoração dos quadrados campeões [RF11] */
+@keyframes pulsoVitoria {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(25, 135, 84, 0.4);
+  }
+  to {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(25, 135, 84, 0.8);
+  }
+}
