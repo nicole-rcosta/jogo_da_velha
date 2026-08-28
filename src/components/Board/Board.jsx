@@ -1,4 +1,4 @@
-
+import React from 'react';
 import Square from '../Square/Square.jsx';
 import styles from './Board.module.css';
 

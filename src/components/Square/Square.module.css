@@ -1,51 +1,61 @@
-/* Bloco BEM: Estilo base da célula */
 .square {
+  aspect-ratio: 1 / 1;
   width: 100%;
-  aspect-ratio: 1 / 1; /* Garante proporção perfeitamente quadrada (1:1) */
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--bs-body-color, #212529);
-  background-color: var(--bs-body-bg, #ffffff);
-  border: 2px solid var(--bs-border-color, #dee2e6);
-  border-radius: 12px;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #4f46e5;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 1.25rem;
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  user-select: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
 }
 
-/* Efeitos interativos para quando o mouse passa por cima */
 .square:hover:not(:disabled) {
-  background-color: var(--bs-tertiary-bg, #f8f9fa);
-  border-color: #0d6efd;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background-color: #e0e7ff;
+  border-color: #6366f1;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px -3px rgba(99, 102, 241, 0.25);
 }
 
-/* Desativa ponteiro quando desabilitado */
+.square:active:not(:disabled) {
+  transform: translateY(0) scale(0.96);
+}
+
 .square:disabled {
   cursor: not-allowed;
-  opacity: 0.85;
+  opacity: 0.7;
 }
 
-/* Modificador BEM: Estilo da trinca vitoriosa [RF04 / RF11] */
 .square--winning {
-  background-color: #d1e7dd !important;
-  border-color: #198754 !important;
-  color: #0f5132 !important;
-  animation: pulsoVitoria 0.6s ease-in-out infinite alternate;
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #ffffff !important;
+  border-color: #34d399 !important;
+  animation: winBounce 0.8s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* Animação suave para comemoração dos quadrados campeões [RF11] */
-@keyframes pulsoVitoria {
-  from {
+@keyframes winBounce {
+  0% {
     transform: scale(1);
-    box-shadow: 0 0 5px rgba(25, 135, 84, 0.4);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
   }
-  to {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(25, 135, 84, 0.8);
+  100% {
+    transform: scale(1.06);
+    box-shadow: 0 8px 16px 2px rgba(16, 185, 129, 0.4);
   }
+}
+
+[data-bs-theme='dark'] .square {
+  background: #1e293b;
+  border-color: #334155;
+  color: #818cf8;
+}
+
+[data-bs-theme='dark'] .square:hover:not(:disabled) {
+  background: #312e81;
+  border-color: #818cf8;
 }

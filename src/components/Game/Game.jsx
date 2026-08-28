@@ -106,14 +106,16 @@ export default function Game() {
   }
 
   return (
-    <div className={`${styles.gameContainer} container my-4`}>
+    <div className={`${styles.gameContainer} my-4`}>
       {/* Botão Dark/Light Mode [RF12] */}
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1 className="h3 m-0">Jogo da Velha</h1>
-        <button className="btn btn-outline-secondary btn-sm" onClick={alternarTema}>
-          {modoEscuro ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
-        </button>
-      </div>
+    {/* Cabeçalho centralizado sem sobreposição */}
+    <div className="d-flex flex-column align-items-center mb-4">
+      <h1 className={styles.tituloPrincipal}>Jogo da Velha</h1>
+      <button className="btn btn-outline-secondary btn-sm mt-2" onClick={alternarTema}>
+        {modoEscuro ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
+      </button>
+
+    </div>
 
       {/* Placar da Sessão [RF09] com Bootstrap Grid [RF10] */}
       <div className="row text-center mb-4">
@@ -150,7 +152,7 @@ export default function Game() {
             jogoFinalizado={jogoFinalizado}
           />
           <button className="btn btn-primary mt-3" onClick={reiniciarPartida}>
-            🔄 Reiniciar Partida
+            Reiniciar Partida
           </button>
         </div>
 

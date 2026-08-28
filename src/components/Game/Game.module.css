@@ -1,17 +1,166 @@
-/* Wrapper principal da aplicação [RF10] */
+/* Container principal com fundo levemente colorido */
+/* Container principal ajustado para ocupar a tela inteira */
 .gameContainer {
-  max-width: 850px;
-  background-color: var(--bs-body-bg);
-  color: var(--bs-body-color);
-  border-radius: 16px;
-  padding: 24px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100% !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 3rem 2rem;
+  border-radius: 2.5rem;
+  background: #ffffff;
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.18);
+  border: 1px solid #eef2ff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+/* Título e Botão de Tema */
+.gameContainer h1, 
+.gameContainer h2 {
+  color: #1e1b4b;
+  font-weight: 800;
 }
 
-/* Scroll para a lista do histórico de viagem no tempo [RF07] */
-.listaHistorico {
-  max-height: 320px;
-  overflow-y: auto;
-  border-radius: 8px;
-  border: 1px solid var(--bs-border-color, #dee2e6);
+/* Botão de Alternar Tema e Botão de Reiniciar */
+.gameContainer :global(.btn-outline-secondary),
+.gameContainer :global(.btn-primary) {
+  border-radius: 9999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.gameContainer :global(.btn-outline-secondary) {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.gameContainer :global(.btn-outline-secondary:hover) {
+  background-color: #e2e8f0;
+  color: #1e293b;
+  transform: translateY(-2px);
+}
+
+.gameContainer :global(.btn-primary) {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.gameContainer :global(.btn-primary:hover) {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.4);
+}
+
+/* Redefinição dos Cards do Placar */
+.gameContainer :global(.bg-body-tertiary) {
+  background-color: #f8fafc !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 1.25rem !important;
+  transition: all 0.2s ease;
+}
+
+.gameContainer :global(.bg-body-tertiary:hover) {
+  border-color: #c7d2fe !important;
+  transform: translateY(-3px);
+}
+
+/* Redefinição da Caixa de Status (Alerta da Vez do Jogador) */
+.gameContainer :global(.alert-info) {
+  background: linear-gradient(135deg, #e0e7ff 0%, #eea2a2 0%, #e0e7ff 0%, #f3e8ff 100%) !important;
+  border: 1px solid #c7d2fe !important;
+  color: #4338ca !important;
+  border-radius: 1rem !important;
+  font-size: 1.1rem;
+}
+
+/* Histórico de Jogadas */
+.listaHistorico {
+  max-height: 340px;
+  overflow-y: auto;
+  border-radius: 1.25rem;
+  border: 2px solid #f1f5f9;
+  padding: 8px;
+  background-color: #fafafa;
+}
+
+.listaHistorico :global(.list-group-item) {
+  border: none;
+  background: transparent;
+}
+
+/* Botões dentro do histórico */
+.listaHistorico :global(.btn-success) {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  border: none !important;
+  border-radius: 0.75rem !important;
+  padding: 0.5rem 0.8rem;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+}
+
+.listaHistorico :global(.btn-link) {
+  color: #64748b;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.listaHistorico :global(.btn-link:hover) {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+/* Suporte ao Modo Escuro */
+[data-bs-theme='dark'] .gameContainer {
+  background: #0f172a;
+  border-color: #1e293b;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+[data-bs-theme='dark'] .gameContainer h1, 
+[data-bs-theme='dark'] .gameContainer h2 {
+  color: #f8fafc;
+}
+
+[data-bs-theme='dark'] .gameContainer :global(.bg-body-tertiary) {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+[data-bs-theme='dark'] .gameContainer :global(.alert-info) {
+  background: linear-gradient(135deg, #1e1b4b 0%, #311b92 100%) !important;
+  border-color: #4338ca !important;
+  color: #c7d2fe !important;
+}
+
+[data-bs-theme='dark'] .listaHistorico {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+/* Título Principal com Destaque e Gradiente */
+/* Título Principal Ajustado */
+.tituloPrincipal {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0.2rem 0;
+}
+
+[data-bs-theme='dark'] .tituloPrincipal {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .tituloPrincipal {
+    font-size: 1.75rem;
+  }
+}
+
