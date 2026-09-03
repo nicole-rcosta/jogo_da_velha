@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import confetti from 'canvas-confetti'; // [RF11] Efeito visual de vitória
+import confetti from 'canvas-confetti'; // [RF11] 
 import Board from '../Board/Board.jsx';
 import styles from './Game.module.css';
 
