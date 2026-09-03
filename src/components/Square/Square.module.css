@@ -1,61 +1,151 @@
 .square {
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: #4f46e5;
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  border-radius: 1.25rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+width: 100%;
+aspect-ratio: 1 / 1;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border: 2px solid #e2e8f0;
+border-radius: 1rem;
+
+background: #ffffff;
+
+color: #4f46e5;
+
+font-size: clamp(2rem, 7vw, 2.8rem);
+font-weight: 900;
+line-height: 1;
+
+cursor: pointer;
+
+box-shadow:
+0 4px 8px rgba(15, 23, 42, 0.04);
+
+transition:
+transform 0.18s ease,
+background 0.18s ease,
+border-color 0.18s ease,
+box-shadow 0.18s ease;
 }
 
+/* Estado normal */
+
 .square:hover:not(:disabled) {
-  background-color: #e0e7ff;
-  border-color: #6366f1;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px -3px rgba(99, 102, 241, 0.25);
+background: #eef2ff;
+border-color: #818cf8;
+
+transform: translateY(-3px);
+
+box-shadow:
+0 10px 20px rgba(79, 70, 229, 0.14);
 }
 
 .square:active:not(:disabled) {
-  transform: translateY(0) scale(0.96);
+transform: scale(0.95);
 }
 
+/* Foco para acessibilidade */
+
+.square:focus-visible {
+outline: 3px solid rgba(99, 102, 241, 0.35);
+outline-offset: 3px;
+}
+
+/* Quadrados desabilitados */
+
 .square:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
+cursor: default;
+}
+
+/*
+Quadrados que não fazem parte
+da linha vencedora ficam discretos.
+*/
+
+.square:disabled:not(.square--winning) {
+opacity: 0.65;
+}
+
+/* ========================================
+QUADRADO VENCEDOR
+======================================== */
+
+.square--winning {
+background:
+linear-gradient(
+135deg,
+#10b981 0%,
+#059669 100%
+) !important;
+
+color: #ffffff !important;
+
+border-color: #34d399 !important;
+
+animation: winningPulse 1s ease-in-out infinite alternate;
+
+box-shadow:
+0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes winningPulse {
+from {
+transform: scale(1);
+}
+
+to {
+transform: scale(1.035);
+}
+}
+
+/* ========================================
+DARK MODE
+======================================== */
+
+[data-bs-theme="dark"] .square {
+background: #1e293b;
+border-color: #334155;
+color: #818cf8;
+
+box-shadow:
+0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-bs-theme="dark"] .square:hover:not(:disabled) {
+background: #312e81;
+border-color: #818cf8;
+
+box-shadow:
+0 10px 20px rgba(79, 70, 229, 0.2);
+}
+
+[data-bs-theme="dark"] .square:focus-visible {
+outline-color: rgba(129, 140, 248, 0.5);
+}
+
+[data-bs-theme="dark"] .square--winning {
+background:
+linear-gradient(
+135deg,
+#059669 0%,
+#047857 100%
+) !important;
+
+color: #ffffff !important;
+border-color: #34d399 !important;
+}
+
+/* ========================================
+REDUÇÃO DE MOVIMENTO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+.square {
+transition: none;
 }
 
 .square--winning {
-  background: linear-gradient(135deg, #10b981, #059669) !important;
-  color: #ffffff !important;
-  border-color: #34d399 !important;
-  animation: winBounce 0.8s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
+animation: none;
 }
-
-@keyframes winBounce {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
-  }
-  100% {
-    transform: scale(1.06);
-    box-shadow: 0 8px 16px 2px rgba(16, 185, 129, 0.4);
-  }
-}
-
-[data-bs-theme='dark'] .square {
-  background: #1e293b;
-  border-color: #334155;
-  color: #818cf8;
-}
-
-[data-bs-theme='dark'] .square:hover:not(:disabled) {
-  background: #312e81;
-  border-color: #818cf8;
 }

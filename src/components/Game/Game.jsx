@@ -109,40 +109,55 @@ export default function Game() {
     <div className={`${styles.gameContainer} my-4`}>
       {/* Botão Dark/Light Mode [RF12] */}
     {/* Cabeçalho centralizado sem sobreposição */}
-    <div className="d-flex flex-column align-items-center mb-4">
-      <h1 className={styles.tituloPrincipal}>Jogo da Velha</h1>
-      <button className="btn btn-outline-secondary btn-sm mt-2" onClick={alternarTema}>
+    <div className={styles.header}>
+  <h1 className={styles.tituloPrincipal}>Jogo da Velha</h1>
+
+  <p className={styles.subtitulo}>
+    Uma disputa entre X e O
+  </p>
+
+  <button className={styles.botaoTema} onClick={alternarTema}>
+
         {modoEscuro ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
       </button>
 
     </div>
 
       {/* Placar da Sessão [RF09] com Bootstrap Grid [RF10] */}
-      <div className="row text-center mb-4">
+      <div className={`row text-center ${styles.placar}`}>
         <div className="col-4">
-          <div className="p-2 border rounded bg-body-tertiary">
-            <span className="fw-bold d-block">Jogador X</span>
-            <span className="fs-4 text-primary">{placar.vitoriasX}</span>
+          <div className={styles.cardPlacar}>
+            <span className={styles.nomeJogador}>Jogador X</span>
+            <span className={`${styles.valorPlacar} ${styles.valorX}`}>
+              {placar.vitoriasX}
+            </span>
+
           </div>
         </div>
         <div className="col-4">
-          <div className="p-2 border rounded bg-body-tertiary">
-            <span className="fw-bold d-block">Empates</span>
-            <span className="fs-4 text-secondary">{placar.empates}</span>
+          <div className={styles.cardPlacar}>
+           <span className={styles.nomeJogador}>Empates</span>
+          <span className={`${styles.valorPlacar} ${styles.valorEmpate}`}>
+            {placar.empates}
+          </span>
+
           </div>
         </div>
         <div className="col-4">
-          <div className="p-2 border rounded bg-body-tertiary">
-            <span className="fw-bold d-block">Jogador O</span>
-            <span className="fs-4 text-danger">{placar.vitoriasO}</span>
+          <div className={styles.cardPlacar}>
+            <span className={styles.nomeJogador}>Jogador O</span>
+            <span className={`${styles.valorPlacar} ${styles.valorO}`}>
+              {placar.vitoriasO}
+            </span>
+
           </div>
         </div>
       </div>
 
-      <div className="row">
+      <div className={`row ${styles.areaJogo}`}>
         {/* Painel do Tabuleiro [RF01] */}
-        <div className="col-md-7 text-center mb-4">
-          <div className="alert alert-info py-2 mb-3" role="status">
+        <div className={`col-md-7 ${styles.painelTabuleiro}`}>
+          <div className={styles.statusJogo} role="status">
             <span className="fw-semibold">{mensagemStatus}</span>
           </div>
           <Board
@@ -151,14 +166,17 @@ export default function Game() {
             linhaVencedora={linhaVencedora}
             jogoFinalizado={jogoFinalizado}
           />
-          <button className="btn btn-primary mt-3" onClick={reiniciarPartida}>
+          <button className={styles.botaoReiniciar} onClick={reiniciarPartida}>
             Reiniciar Partida
           </button>
         </div>
 
         {/* Histórico e Viagem no Tempo [RF07] */}
-        <div className="col-md-5">
-          <h2 className="h5 mb-3">Histórico de Jogadas</h2>
+        <div className={`col-md-5 ${styles.painelHistorico}`}>
+        <h2 className={styles.tituloHistorico}>
+          Histórico de Jogadas
+        </h2>
+
           <ol className={`list-group list-group-numbered ${styles.listaHistorico}`}>
             {historico.map((_, jogada) => {
               const descricao = jogada > 0 ? `Ir para a jogada #${jogada}` : 'Início do jogo';
