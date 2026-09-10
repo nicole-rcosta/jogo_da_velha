@@ -2,7 +2,6 @@
 
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.style=for-the-badge)](LICENSE)
 
 Uma versão moderna, responsiva, interativa e acessível do clássico **Jogo da Velha**, desenvolvida como projeto de refatoração acadêmica a partir do tutorial oficial da biblioteca React.
 
@@ -79,11 +78,11 @@ src/
     └── Square/
         ├── Square.jsx
         └── Square.module.css
-        
+
+
 
 ## 🚀 Como Executar o Projeto
 
 1. **Clone o repositório:**
    ```bash
    git clone [https://github.com/nicole-rcosta/jogo_da_velha.git](https://github.com/nicole-rcosta/jogo_da_velha.git)
-   cd jogo-da-velha-react
