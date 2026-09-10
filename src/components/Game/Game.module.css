@@ -5,17 +5,28 @@
   border-radius: 2rem;
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.16), 0 8px 24px rgba(15, 23, 42, 0.05);
+  box-shadow:
+    0 25px 50px -12px rgba(79, 70, 229, 0.16),
+    0 8px 24px rgba(15, 23, 42, 0.05);
+
   backdrop-filter: blur(12px);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
+
 /* ========================================
-CABEÇALHO
+   CABEÇALHO
 ======================================== */
 
 .header {
@@ -29,7 +40,13 @@ CABEÇALHO
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 900;
   letter-spacing: -0.035em;
-  background: linear-gradient(135deg,#4f46e5 0%,#6366f1 45%,#9333ea 100%);
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5 0%,
+      #6366f1 45%,
+      #9333ea 100%
+    );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,8 +58,9 @@ CABEÇALHO
   font-size: 0.95rem;
 }
 
+
 /* ========================================
-BOTÃO DE TEMA
+   BOTÃO DE TEMA
 ======================================== */
 
 .botaoTema {
@@ -57,6 +75,7 @@ BOTÃO DE TEMA
   transition:
     transform 0.2s ease,
     background 0.2s ease,
+    color 0.2s ease,
     box-shadow 0.2s ease !important;
 }
 
@@ -64,11 +83,217 @@ BOTÃO DE TEMA
   background: #eef2ff !important;
   color: #4338ca !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.12);
+  box-shadow:
+    0 6px 15px rgba(79, 70, 229, 0.12);
 }
 
+
 /* ========================================
-PLACAR
+   CONFIGURAÇÃO DO TORNEIO
+======================================== */
+
+.torneioConfig {
+  position: relative;
+  width: min(100%, 720px);
+  margin: 2.5rem auto !important;
+  padding: 2.75rem 3rem !important;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(99, 102, 241, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(168, 85, 247, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(248, 250, 252, 0.95)
+    );
+  border: 1px solid rgba(199, 210, 254, 0.85);
+  border-radius: 2rem !important;
+  box-shadow:
+    0 25px 50px -15px rgba(79, 70, 229, 0.18),
+    0 10px 25px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(15px);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.torneioConfig:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 30px 60px -18px rgba(79, 70, 229, 0.22),
+    0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* Decoração superior */
+
+.torneioConfig::before {
+  content: "🏆";
+  position: absolute;
+  top: -45px;
+  right: -35px;
+  width: 145px;
+  height: 145px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.13),
+      rgba(168, 85, 247, 0.08)
+    );
+  border-radius: 50%;
+  font-size: 3.2rem;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+
+/* Linha decorativa inferior */
+
+.torneioConfig::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 45%;
+  height: 3px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #6366f1,
+      #a855f7,
+      transparent
+    );
+  border-radius: 999px;
+}
+
+
+/* ========================================
+   TÍTULO DO TORNEIO
+======================================== */
+
+.torneioConfig h2 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem !important;
+  color: #1e293b;
+  font-size: clamp(1.5rem, 4vw, 2rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.04em;
+}
+
+
+/* ========================================
+   LABEL
+======================================== */
+
+.torneioConfig .form-label {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: #475569;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* ========================================
+   SELECT
+======================================== */
+
+.torneioConfig .form-select {
+  min-height: 52px;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.9rem;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.04);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.torneioConfig .form-select:hover {
+  background-color: #ffffff;
+  border-color: #818cf8;
+  box-shadow:
+    0 5px 15px rgba(79, 70, 229, 0.08);
+}
+
+.torneioConfig .form-select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+/* ========================================
+   BOTÃO INICIAR TORNEIO
+======================================== */
+
+.torneioConfig .btn-success {
+  position: relative;
+  z-index: 1;
+  min-width: 230px;
+  min-height: 52px;
+  margin-top: 0.5rem;
+  border: none !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(
+      135deg,
+      #10b981 0%,
+      #059669 55%,
+      #047857 100%
+    ) !important;
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 800;
+  box-shadow:
+    0 10px 20px rgba(16, 185, 129, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.torneioConfig .btn-success:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 15px 28px rgba(16, 185, 129, 0.32);
+}
+
+.torneioConfig .btn-success:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 7px 15px rgba(16, 185, 129, 0.25);
+}
+
+
+/* ========================================
+   PLACAR
 ======================================== */
 
 .placar {
@@ -82,6 +307,7 @@ PLACAR
   border: 1px solid #e2e8f0;
   border-radius: 1.25rem;
   text-align: center;
+
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -89,9 +315,10 @@ PLACAR
 }
 
 .cardPlacar:hover {
-transform: translateY(-3px);
-border-color: #c7d2fe;
-box-shadow: 0 8px 20px rgba(79, 70, 229, 0.08);
+  transform: translateY(-3px);
+  border-color: #c7d2fe;
+  box-shadow:
+    0 8px 20px rgba(79, 70, 229, 0.08);
 }
 
 .nomeJogador {
@@ -123,8 +350,9 @@ box-shadow: 0 8px 20px rgba(79, 70, 229, 0.08);
   color: #ec4899;
 }
 
+
 /* ========================================
-ÁREA PRINCIPAL
+   ÁREA PRINCIPAL
 ======================================== */
 
 .areaJogo {
@@ -132,8 +360,9 @@ box-shadow: 0 8px 20px rgba(79, 70, 229, 0.08);
   align-items: flex-start;
 }
 
+
 /* ========================================
-PAINEL DO TABULEIRO
+   PAINEL DO TABULEIRO
 ======================================== */
 
 .painelTabuleiro {
@@ -141,20 +370,32 @@ PAINEL DO TABULEIRO
   padding-right: 1.5rem;
 }
 
+
+/* ========================================
+   STATUS DO JOGO
+======================================== */
+
 .statusJogo {
   margin-bottom: 1.25rem !important;
   padding: 0.85rem 1rem !important;
   border: 1px solid #c7d2fe !important;
   border-radius: 1rem !important;
-  background: linear-gradient(135deg,#eef2ff 0%,#f5f3ff 100%) !important;
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #f5f3ff 100%
+    ) !important;
   color: #4338ca !important;
   font-size: 0.95rem;
   font-weight: 700;
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.06);
+  box-shadow:
+    0 5px 15px rgba(79, 70, 229, 0.06);
 }
 
+
 /* ========================================
-BOTÃO REINICIAR
+   BOTÃO REINICIAR
 ======================================== */
 
 .botaoReiniciar {
@@ -162,10 +403,16 @@ BOTÃO REINICIAR
   border: none !important;
   border-radius: 999px !important;
   padding: 0.7rem 1.5rem !important;
-  background: linear-gradient(135deg,#6366f1 0%,#4f46e5 100%) !important;
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1 0%,
+      #4f46e5 100%
+    ) !important;
   color: #ffffff !important;
   font-weight: 800 !important;
-  box-shadow:0 6px 15px rgba(79, 70, 229, 0.25);
+  box-shadow:
+    0 6px 15px rgba(79, 70, 229, 0.25);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -175,15 +422,17 @@ BOTÃO REINICIAR
 .botaoReiniciar:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
-  box-shadow: 0 10px 22px rgba(79, 70, 229, 0.32);
+  box-shadow:
+    0 10px 22px rgba(79, 70, 229, 0.32);
 }
 
 .botaoReiniciar:active {
   transform: translateY(0);
 }
 
+
 /* ========================================
-HISTÓRICO
+   HISTÓRICO
 ======================================== */
 
 .painelHistorico {
@@ -205,7 +454,8 @@ HISTÓRICO
   border: 1px solid #e2e8f0;
   border-radius: 1.25rem;
   background: #f8fafc;
-  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.03);
+  box-shadow:
+    inset 0 1px 3px rgba(15, 23, 42, 0.03);
 }
 
 .listaHistorico :global(.list-group-item) {
@@ -236,24 +486,40 @@ HISTÓRICO
 
 .listaHistorico :global(.btn-success) {
   border: none !important;
-  background: linear-gradient(135deg,#10b981 0%,#059669 100%) !important;
+  background:
+    linear-gradient(
+      135deg,
+      #10b981 0%,
+      #059669 100%
+    ) !important;
+
   color: #ffffff !important;
   box-shadow:
-  0 5px 12px rgba(16, 185, 129, 0.2);
+    0 5px 12px rgba(16, 185, 129, 0.2);
 }
 
+
 /* ========================================
-DARK MODE
+   DARK MODE
 ======================================== */
 
 [data-bs-theme="dark"] .gameContainer {
   background: rgba(15, 23, 42, 0.94);
   border-color: #1e293b;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.55),
+    0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 [data-bs-theme="dark"] .tituloPrincipal {
-  background: linear-gradient(135deg,#818cf8 0%,#a78bfa 50%,#d8b4fe 100%);
+  background:
+    linear-gradient(
+      135deg,
+      #818cf8 0%,
+      #a78bfa 50%,
+      #d8b4fe 100%
+    );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -274,8 +540,52 @@ DARK MODE
   color: #e0e7ff !important;
 }
 
+
+/* ========================================
+   DARK MODE — TORNEIO
+======================================== */
+
+[data-bs-theme="dark"] .torneioConfig {
+  background: radial-gradient( circle at 0% 0%, rgba(99, 102, 241, 0.16), transparent 35% ), 
+  radial-gradient( circle at 100% 100%, rgba(124, 58, 237, 0.14), transparent 35%), 
+  linear-gradient( 145deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.96));
+  border-color: #334155;
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.55), 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+[data-bs-theme="dark"] .torneioConfig h2 {
+  color: #f8fafc;
+}
+
+[data-bs-theme="dark"] .torneioConfig .form-label {
+  color: #cbd5e1;
+}
+
+[data-bs-theme="dark"] .torneioConfig .form-select {
+  background-color: #1e293b;
+  border-color: #475569;
+  color: #e2e8f0;
+  box-shadow:0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+[data-bs-theme="dark"] .torneioConfig .form-select:hover {
+  background-color: #273449;
+  border-color: #6366f1;
+}
+
+[data-bs-theme="dark"] .torneioConfig .form-select:focus {
+  border-color: #818cf8;
+  box-shadow:0 0 0 4px rgba(129, 140, 248, 0.15);
+}
+
+
+/* ========================================
+   DARK MODE — PLACAR
+======================================== */
+
 [data-bs-theme="dark"] .cardPlacar {
   background: #1e293b;
+
   border-color: #334155;
 }
 
@@ -299,12 +609,21 @@ DARK MODE
   color: #f472b6;
 }
 
-[data-bs-theme="dark"] .statusJogo {
-  background: linear-gradient(135deg,#1e1b4b 0%,#312e81 100%) !important;
 
-border-color: #4338ca !important;
+/* ========================================
+   DARK MODE — STATUS
+======================================== */
+
+[data-bs-theme="dark"] .statusJogo {
+  background: linear-gradient( 135deg, #1e1b4b 0%, #312e81 100%) !important;
+  border-color: #4338ca !important;
   color: #c7d2fe !important;
 }
+
+
+/* ========================================
+   DARK MODE — HISTÓRICO
+======================================== */
 
 [data-bs-theme="dark"] .tituloHistorico {
   color: #f8fafc;
@@ -324,74 +643,307 @@ border-color: #4338ca !important;
   color: #f8fafc !important;
 }
 
+
 /* ========================================
-RESPONSIVIDADE
+   RESPONSIVIDADE
 ======================================== */
 
 @media (max-width: 767px) {
-.gameContainer {
-  width: min(100% - 1.25rem, 600px);
-  margin: 0.75rem auto !important;
-  padding: 1.5rem 1rem;
-  border-radius: 1.5rem;
+  .gameContainer {
+    width: min(100% - 1.25rem, 600px);
+    margin: 0.75rem auto !important;
+    padding: 1.5rem 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 1.5rem;
+  }
+
+  .placar {
+    margin-bottom: 1.5rem;
+  }
+
+  .cardPlacar {
+    padding: 0.8rem 0.4rem;
+    border-radius: 1rem;
+  }
+
+  .nomeJogador {
+    font-size: 0.68rem;
+  }
+
+  .valorPlacar {
+    font-size: 1.5rem;
+  }
+
+
+  /* Torneio */
+
+  .torneioConfig {
+    width: 100%;
+    margin: 1.5rem auto !important;
+    padding: 2rem 1.25rem !important;
+    border-radius: 1.5rem !important;
+  }
+
+  .torneioConfig::before {
+    width: 100px;
+    height: 100px;
+    top: -30px;
+    right: -25px;
+    font-size: 2.3rem;
+  }
+
+  .torneioConfig h2 {
+    font-size: 1.45rem !important;
+  }
+
+  .torneioConfig .btn-success {
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* Área do jogo */
+  .areaJogo {
+    display: block;
+  }
+  .painelTabuleiro {
+    padding-right: 0;
+    margin-bottom: 1.75rem;
+  }
+  .painelHistorico {
+    padding-left: 0;
+  }
+  .listaHistorico {
+    min-height: 200px;
+    max-height: 250px;
+  }
 }
 
-.header {
-  margin-bottom: 1.5rem;
+
+/* ========================================
+   CELULARES PEQUENOS
+======================================== */
+
+@media (max-width: 400px) {
+  .gameContainer {
+    width: calc(100% - 0.75rem);
+
+    padding: 1.25rem 0.75rem;
+  }
+  .cardPlacar {
+    padding: 0.7rem 0.25rem;
+  }
+  .nomeJogador {
+    font-size: 0.62rem;
+  }
+  .valorPlacar {
+    font-size: 1.35rem;
+  }
+  .torneioConfig {
+    padding: 1.5rem 1rem !important;
+  }
+  .torneioConfig h2 {
+    font-size: 1.3rem !important;
+  }
+  .torneioConfig .form-select {
+    font-size: 0.82rem;
+  }
 }
 
-.placar {
-  margin-bottom: 1.5rem;
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .gameContainer,
+  .torneioConfig,
+  .cardPlacar,
+  .botaoTema,
+  .botaoReiniciar {
+    transition: none;
+  }
 }
 
-.cardPlacar {
-  padding: 0.8rem 0.4rem;
-  border-radius: 1rem;
+
+/* ========================================
+   CAMPEÃO DO TORNEIO
+======================================== */
+
+.campeaoTorneio {
+  position: relative;
+  width: min(100%, 800px);
+  margin: 2rem auto !important;
+  padding: 2.5rem 2rem !important;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid #fbbf24 !important;
+  border-radius: 2rem !important;
+  background:
+    radial-gradient(circle at 50% -20%,rgba(251, 191, 36, 0.28),transparent 45%),radial-gradient(circle at 0% 100%, rgba(16, 185, 129, 0.12),transparent 35%),
+    linear-gradient(145deg, #fffbeb 0%, #fef3c7 50%, #ecfdf5 100%) !important;
+  color: #78350f !important;
+  box-shadow:
+    0 25px 50px -15px rgba(245, 158, 11, 0.25),
+    0 10px 25px rgba(15, 23, 42, 0.06);
+  animation: campeaoEntrada 0.5s ease-out;
 }
 
-.nomeJogador {
-  font-size: 0.68rem;
+
+/* Brilho decorativo */
+
+.campeaoTorneio::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  width: 300px;
+  height: 200px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  filter: blur(30px);
+  pointer-events: none;
 }
 
-.valorPlacar {
-  font-size: 1.5rem;
+
+/* Linha dourada */
+
+.campeaoTorneio::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 55%;
+  height: 4px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #f59e0b,
+      #fbbf24,
+      #f59e0b,
+      transparent);
+  border-radius: 999px;
 }
 
-.areaJogo {
-  display: block;
+
+/* ========================================
+   TÍTULO DO CAMPEÃO
+======================================== */
+
+.campeaoTorneio h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 1rem !important;
+  color: #92400e !important;
+  font-size: clamp(1.4rem, 4vw, 2rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
 }
 
-.painelTabuleiro {
-  padding-right: 0;
-  margin-bottom: 1.75rem;
+
+/* ========================================
+   BOTÃO NOVO TORNEIO
+======================================== */
+
+.campeaoTorneio .btn-primary {
+  position: relative;
+  z-index: 1;
+  min-width: 190px;
+  padding: 0.7rem 1.4rem !important;
+  border: none !important;
+  border-radius: 999px !important;
+  background:linear-gradient(135deg,#6366f1, #4f46e5) !important;
+  color: #ffffff !important;
+  font-weight: 800;
+  box-shadow:0 8px 18px rgba(79, 70, 229, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
-.painelHistorico {
-  padding-left: 0;
+.campeaoTorneio .btn-primary:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.32);
 }
 
-.listaHistorico {
-  min-height: 200px;
-  max-height: 250px;
+.campeaoTorneio .btn-primary:active {
+  transform: translateY(-1px);
 }
+
+
+/* ========================================
+   ANIMAÇÃO
+======================================== */
+
+@keyframes campeaoEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ========================================
+   DARK MODE — CAMPEÃO
+======================================== */
+
+[data-bs-theme="dark"] .campeaoTorneio {
+  border-color: #d97706 !important;
+  background:radial-gradient(circle at 50% -20%,rgba(245, 158, 11, 0.2),transparent 45%),radial-gradient(circle at 0% 100%,rgba(16, 185, 129, 0.1),transparent 35%),
+  linear-gradient(145deg,#29200d 0%,#31250d 50%, #10251d 100%) !important;
+  color: #fef3c7 !important;
+  box-shadow:
+    0 25px 50px -15px rgba(0, 0, 0, 0.55),
+    0 10px 25px rgba(245, 158, 11, 0.08);
+}
+
+
+[data-bs-theme="dark"] .campeaoTorneio h2 {
+  color: #fde68a !important;
+}
+
+
+[data-bs-theme="dark"] .campeaoTorneio::before {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 767px) {
+  .campeaoTorneio {
+    padding: 2rem 1.25rem !important;
+    border-radius: 1.5rem !important;
+  }
+
+  .campeaoTorneio h2 {
+    font-size: 1.4rem !important;
+  }
+  .campeaoTorneio .btn-primary {
+    width: 100%;
+  }
 }
 
 @media (max-width: 400px) {
-.gameContainer {
-  width: calc(100% - 0.75rem);
-  padding: 1.25rem 0.75rem;
+  .campeaoTorneio {
+    padding: 1.75rem 1rem !important;
+  }
+  .campeaoTorneio h2 {
+    font-size: 1.2rem !important;
+  }
 }
 
-.cardPlacar {
-  padding: 0.7rem 0.25rem;
-}
-
-.nomeJogador {
-  font-size: 0.62rem;
-}
-
-.valorPlacar {
-  font-size: 1.35rem;
-}
-}
 

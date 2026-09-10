@@ -231,7 +231,7 @@ export default function Game() {
 
       <div className={styles.header}>
         <h1 className={styles.tituloPrincipal}>
-          Jogo da Velha — Modo Torneio
+          Jogo da Velha
         </h1>
 
         <button
@@ -248,7 +248,7 @@ export default function Game() {
       ======================================== */}
 
       {!jogoIniciado ? (
-        <div className="card p-4 text-center shadow-sm my-4">
+        <div className={styles.torneioConfig}>
           <h2 className="h4 mb-3">
             Configurações do Torneio
           </h2>
@@ -356,10 +356,8 @@ export default function Game() {
           ======================================== */}
 
           {campeaoTorneio ? (
-            <div
-              className="alert alert-success text-center py-3 mb-4 shadow"
-              role="alert"
-            >
+            <div className={styles.campeaoTorneio} role="alert">
+
               <h2 className="h3 mb-2">
                 🏆 {campeaoTorneio} é o Grande Campeão do
                 Torneio! 🏆
