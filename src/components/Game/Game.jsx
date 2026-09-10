@@ -292,7 +292,7 @@ export default function Game() {
               className="btn btn-success btn-lg px-4"
               onClick={iniciarTorneio}
             >
-              🎮 Iniciar Torneio
+             Iniciar Torneio
             </button>
           </div>
         </div>
